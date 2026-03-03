@@ -1,0 +1,13 @@
+</>  Code
+js/timeline.js
+</>  Javascript
+const timeline = document.getElementById("timeline");
+
+export function addNote(x, y, width) {
+  const note = document.createElement("div");
+  note.className = "note";
+  note.style.left = x + "px";
+  note.style.top = y + "px";
+  note.style.width = width + "px";
+  timeline.appendChild(note);
+}
