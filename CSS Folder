@@ -1,0 +1,32 @@
+</>  Code
+css/style.css
+</>  CSS
+body {
+  background: #111;
+  color: white;
+  font-family: Arial;
+}
+
+.controls {
+  margin: 20px;
+}
+
+button {
+  margin: 5px;
+  padding: 8px 12px;
+}
+
+#timeline {
+  height: 300px;
+  border: 1px solid white;
+  margin: 20px;
+  position: relative;
+  overflow-x: scroll;
+}
+
+.note {
+  position: absolute;
+  height: 20px;
+  background: #00ffcc;
+  border-radius: 4px;
+}
