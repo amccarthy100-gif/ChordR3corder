@@ -1,0 +1,9 @@
+</>Code
+js/audioengine.js
+</>  JavaScript
+const AudioContext = window.AudioContext || window.webkitAudioContext;
+const audioCtx = new AudioContext();
+
+export function getAudioContext() {
+  return audioCtx;
+}
