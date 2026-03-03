@@ -1,0 +1,38 @@
+</>  Code
+js/metronome.js
+</>  JavaScript
+let metroInterval;
+let metroOn = false;
+
+function clickSound(ac, accent=false) {
+  const osc = ac.createOscillator();
+  const gain = ac.createGain();
+
+  osc.frequency.value = accent ? 1000 : 800;
+  gain.gain.value = 0.3;
+
+  osc.connect(gain);
+  gain.connect(ac.destination);
+
+  osc.start();
+  osc.stop(ac.currentTime + 0.05);
+}
+
+export function toggleMetronome(bpm) {
+  const ac = new (window.AudioContext || window.webkitAudioContext)();
+
+  if (metroOn) {
+    clearInterval(metroInterval);
+    metroOn = false;
+    return false;
+  }
+
+  let beat = 0;
+  metroInterval = setInterval(() => {
+    clickSound(ac, beat % 4 === 0);
+    beat++;
+  }, 60000 / bpm);
+
+  metroOn = true;
+  return true;
+}
