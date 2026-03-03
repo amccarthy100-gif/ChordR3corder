@@ -1,0 +1,28 @@
+</>  Code
+js/app.js
+</>  JavaScript
+import { toggleMetronome } from "./metronome.js";
+import { startMic } from "./pitchDetection.js";
+
+const playBtn = document.getElementById("playBtn");
+const stopBtn = document.getElementById("stopBtn");
+const loopBtn = document.getElementById("loopBtn");
+const metronomeBtn = document.getElementById("metronomeBtn");
+const recordBtn = document.getElementById("recordBtn");
+
+let loop = false;
+
+metronomeBtn.onclick = () => {
+  const bpm = document.getElementById("bpm").value;
+  const state = toggleMetronome(bpm);
+  metronomeBtn.innerText = state ? "Metronome: On" : "Metronome: Off";
+};
+
+loopBtn.onclick = () => {
+  loop = !loop;
+  loopBtn.innerText = loop ? "Loop: On" : "Loop: Off";
+};
+
+recordBtn.onclick = async () => {
+  await startMic();
+};
